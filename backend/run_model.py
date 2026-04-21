@@ -4,12 +4,12 @@ import sys
 import logging
 
 import argparse
-# --- Configuration ---
+# Configuration 
 LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
 logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 
-# --- Define project paths ---
-# The script is in 'backend/', so we get its absolute path.
+# project paths
+# script is in 'backend'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_GENERATOR_PATH = os.path.join(BASE_DIR, 'csv_generator')
 FLOOD_DETECTOR_PATH = os.path.join(BASE_DIR, 'flood_detector')
@@ -27,7 +27,6 @@ def run_step(script_name, working_dir, step_description):
     """
     logging.info(f"--- Running Step: {step_description} ---")
     
-    # Ensure we use the same Python interpreter that is running this script.
     python_executable = sys.executable
     command = [python_executable, script_name]
     
